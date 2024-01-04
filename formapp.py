@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+
 def open_page():
     with st.form("open_form"):
         x1=st.text_input("Enter the number-1 ",value=0)
@@ -7,7 +8,8 @@ def open_page():
         sub=st.form_submit_button("Ok")
         
 st.header("Sample Form")
-st.camera_input("Camera")
+
+cam=st.camera_input("Camera")
 with st.form("my_form"):
     x=st.text_input("Enter the number-1 ",value=0)
     y=st.text_input("Enter the number-2",value=0)
@@ -20,7 +22,7 @@ with st.form("my_form"):
         st.write("Addition is ",int(x)+int(y))
         st.write("Selected Color is ",color)
         st.sidebar.title("Navigation")
-        
+        st.image(cam) 
 
 df=pd.read_csv("sonar_data.csv")
 st.write(df.head())
