@@ -7,6 +7,7 @@ def open_page():
         sub=st.form_submit_button("Ok")
         
 st.header("Sample Form")
+st.camera_input("Camera")
 with st.form("my_form"):
     x=st.text_input("Enter the number-1 ",value=0)
     y=st.text_input("Enter the number-2",value=0)
