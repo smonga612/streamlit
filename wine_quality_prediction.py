@@ -104,19 +104,15 @@ with st.form("my_form"):
     if submit:
         input_data=(fa,va,ca,rs,cl,fsd,tsd,des,ph,sul,alc)
         #st.write("Addition is ",int(x)+int(y))
+        input_data_as_numpy_array=np.asarray(input_data)
+        input_data_reshaped=input_data_as_numpy_array.reshape(1,-1)
+        st.write(input_data_reshaped)
+        prediction=classifier.predict(input_data_reshaped)
+        if(prediction ==0):
+            st.write("Quality is below or equal to 5")
+        else:
+            st.write("Quality is above 5")
 
 
 #input_data=(6.2,0.53,0.02,0.9,0.035,6,81,0.99234,3.24,0.35,9.5)
 
-input_data_as_numpy_array=np.asarray(input_data)
-
-input_data_reshaped=input_data_as_numpy_array.reshape(1,-1)
-
-st.write(input_data_reshaped)
-
-prediction=classifier.predict(input_data_reshaped)
-
-if(prediction ==0):
-    st.write("Quality is below or equal to 5")
-else:
-    st.write("Quality is above 5")
